@@ -1,14 +1,158 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI MCQ Test</title><style>
-:root{color-scheme:light dark;--bg:light-dark(#f4f7fb,#10151f);--card:light-dark(#fff,#1a2230);--text:light-dark(#172033,#f1f5f9);--muted:light-dark(#64748b,#a8b4c7);--line:light-dark(#dce3ed,#344155);--blue:light-dark(#2457d6,#8baaff);--green:light-dark(#15803d,#4ade80);--red:light-dark(#b91c1c,#f87171)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}.app{min-height:100vh;background:var(--bg);padding:24px 14px 48px}.wrap{max-width:760px;margin:auto}.brand{font-size:13px;font-weight:800;letter-spacing:.13em;color:var(--blue)}h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:8px 0}p{color:var(--muted)}.panel,.question{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:18px;box-shadow:0 8px 28px #0000000a}label{display:block;font-weight:650;margin-bottom:8px}input[type=text]{width:100%;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}button{border:0;border-radius:11px;padding:13px 18px;background:var(--blue);color:white;font:inherit;font-weight:750;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.wide{width:100%;margin-top:16px}.topline{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:14px}.track{height:7px;background:var(--line);border-radius:9px;overflow:hidden;margin:12px 0 20px}.fill{height:100%;background:var(--blue);width:0;transition:width .2s}.question h2{font-size:21px;margin:10px 0 18px}.opt{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:12px;padding:13px;margin:9px 0;cursor:pointer}.opt input{margin-top:5px;accent-color:var(--blue)}.opt.correct{border-color:var(--green);background:light-dark(#f0fdf4,#102a20)}.opt.wrong{border-color:var(--red);background:light-dark(#fef2f2,#30191e)}.feedback{font-weight:750;margin:12px 0}.good{color:var(--green)}.bad{color:var(--red)}.actions{display:flex;gap:10px;margin-top:18px}.actions button{flex:1}.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}.hidden{display:none!important}.score{font-size:54px;font-weight:850;letter-spacing:-.04em}.center{text-align:center}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:13px}.review{text-align:left;border-top:1px solid var(--line);padding:12px 0}.foot{font-size:12px;text-align:center;margin-top:22px;color:var(--muted)}
-</style></head><body><main class="app"><div class="wrap"><div class="brand">ONLINE ASSESSMENT · AI BASICS</div><h1>Artificial Intelligence<br>MCQ Test</h1><p>34 questions · 1 mark each · Instant feedback</p>
-<section id="welcome" class="panel"><span class="pill">Before you begin</span><h2>Ready to test your knowledge?</h2><p>Enter your name to start. Select an option to see whether it is correct, then move to the next question. Your final score appears at the end.</p><label for="student">Student name</label><input id="student" type="text" maxlength="80" placeholder="Enter your full name" autocomplete="name"><button class="wide" id="start">Start test →</button></section>
-<section id="test" class="hidden"><div class="topline"><span id="studentLabel"></span><span id="progressLabel">Question 1 of 34</span></div><div class="track"><div id="progress" class="fill"></div></div><div class="question"><span class="pill" id="number"></span><h2 id="prompt"></h2><div id="options"></div><div id="feedback" class="feedback" aria-live="polite"></div><div class="actions"><button id="prev" class="secondary">← Previous</button><button id="next" disabled>Next →</button></div></div></section>
-<section id="result" class="panel center hidden"><span class="pill">Test completed</span><h2 id="resultTitle">Your result</h2><div class="score" id="score"></div><p id="percentage"></p><p id="summary"></p><button id="reviewBtn" class="secondary">Review answers</button> <button id="restart">Retake test</button><div id="review" class="hidden"></div><p class="foot">Score is calculated in this browser. This standalone version does not upload or save student results online.</p></section><div class="foot">Study smart. Every question is a step forward.</div></div></main>
-<script>const QUESTIONS = [{"q": "What is the main goal of Artificial Intelligence?", "o": ["Replace humans in all tasks", "Build machines that mimic human intelligence", "Develop faster hardware", "Improve internet speed"], "a": 1}, {"q": "Which of the following is NOT a core function of AI?", "o": ["Reasoning", "Planning", "Hardware manufacturing", "Learning"], "a": 2}, {"q": "Which is a common application of AI in daily life?", "o": ["Textbooks", "Siri or Alexa", "Stapler", "Whiteboard"], "a": 1}, {"q": "AI is widely used in which of the following areas?", "o": ["Agriculture", "Medical diagnosis", "Robotics", "All of the above"], "a": 3}, {"q": "When was the term ‘Artificial Intelligence’ first coined?", "o": ["1943", "1956", "1969", "1980"], "a": 1}, {"q": "Who is considered the father of AI?", "o": ["Alan Turing", "John McCarthy", "Marvin Minsky", "Geoffrey Hinton"], "a": 1}, {"q": "Which is a classification of AI based on capabilities?", "o": ["Weak AI, Strong AI, Super AI", "Reactive AI, Limited Memory AI", "Supervised AI, Unsupervised AI", "Rule-Based AI, Neural Network AI"], "a": 0}, {"q": "Which of the following is NOT a type of AI functionality?", "o": ["Reactive Machines", "Limited Memory", "Self-aware", "Physical AI"], "a": 3}, {"q": "Which of these is not a core component of AI?", "o": ["Learning", "Reasoning", "Arithmetic only", "Problem-solving"], "a": 2}, {"q": "Which is a component of AI?", "o": ["Perception", "Language understanding", "Learning", "All of the above"], "a": 3}, {"q": "Which of the following is true about machine intelligence?", "o": ["Machines have emotions", "Machines cannot learn from experience", "Machines process data faster than humans", "Machines have human creativity"], "a": 2}, {"q": "An agent is anything that can:", "o": ["Only take input", "Perceive its environment and act upon it", "Sleep", "Be a human only"], "a": 1}, {"q": "A rational agent is one that:", "o": ["Thinks like humans", "Acts to achieve the best expected outcome", "Always takes random decisions", "Always fails"], "a": 1}, {"q": "What are the types of agents in AI?", "o": ["Simple reflex, model-based reflex, goal-based, utility-based, learning agents", "Static, dynamic, reactive, proactive", "Thinkers and movers", "Logical and non-logical agents"], "a": 0}, {"q": "Which agent type improves over time based on experience?", "o": ["Simple reflex agent", "Model-based reflex agent", "Learning agent", "Rule-based agent"], "a": 2}, {"q": "Which is NOT a type of environment in AI?", "o": ["Fully observable", "Semi-observable", "Partially observable", "Unobservable"], "a": 1}, {"q": "A stochastic environment is one where:", "o": ["Outcomes are predictable", "Outcomes are random or uncertain", "All states are known", "Environment is always passive"], "a": 1}, {"q": "Which AI component is used to draw conclusions from knowledge?", "o": ["Learning", "Reasoning", "Sorting", "Painting"], "a": 1}, {"q": "Which is an example of Natural Language Processing?", "o": ["MS Paint", "Google Translate", "Disk Cleanup", "FileZilla"], "a": 1}, {"q": "Super AI refers to:", "o": ["AI equal to human intelligence", "AI far superior to human intelligence", "AI slightly better than humans", "AI used in games"], "a": 1}, {"q": "Which is the correct sequence of agent function?", "o": ["Actuators → Sensors → Decision → Action", "Sensors → Percept → Agent Function → Actuators", "Sensors → Perceive → Actuator → Action", "Perceive → Actuator → Think → Action"], "a": 1}, {"q": "Which of the following is an application of AI?", "o": ["Spreadsheet calculation", "Web hosting", "Face recognition", "File compression"], "a": 2}, {"q": "Which of the following is a key component of AI?", "o": ["Data entry", "Learning", "Typing speed", "File formatting"], "a": 1}, {"q": "In AI, the environment refers to:", "o": ["The natural world only", "The surroundings in which an agent operates", "The weather", "The database"], "a": 1}, {"q": "Which of the following is NOT a type of AI agent?", "o": ["Simple Reflex", "Human Agent", "Model-based Agent", "Goal-based Agent"], "a": 1}, {"q": "Which of the following is NOT a type of AI?", "o": ["General AI", "Emotional AI", "Strong AI", "Narrow AI"], "a": 1}, {"q": "Knowledge Representation in AI deals with:", "o": ["Drawing charts", "Storing and structuring knowledge", "Creating music", "Editing videos"], "a": 1}, {"q": "A major difference between humans and machines is:", "o": ["Machines can think", "Humans can feel emotions", "Machines are emotional", "Humans cannot learn"], "a": 1}, {"q": "Who proposed the Turing Test for AI?", "o": ["John McCarthy", "Alan Turing", "Marvin Minsky", "Patrick Winston"], "a": 1}, {"q": "An intelligent agent perceives its environment through:", "o": ["Modem", "Sensors", "Router", "Compiler"], "a": 1}, {"q": "One of the primary goals of AI is to:", "o": ["Design faster CPUs", "Develop intelligent systems that can solve complex problems", "Write software automatically", "Increase the size of databases"], "a": 1}, {"q": "Human intelligence is considered:", "o": ["Rule-based only", "Non-flexible", "Creative and adaptive", "Hardware dependent"], "a": 2}, {"q": "What is Artificial Intelligence?", "o": ["Programming language", "Making computers perform tasks that require human intelligence", "Operating system", "Database system"], "a": 1}, {"q": "Which type of AI can perform a specific task only?", "o": ["General AI", "Super AI", "Narrow AI", "Human-level AI"], "a": 2}];
-let student='',idx=0,answers=Array(QUESTIONS.length).fill(null),checked=Array(QUESTIONS.length).fill(false);
-const $=id=>document.getElementById(id);const letters=['A','B','C','D'];
-$('start').addEventListener('click',()=>{const name=$('student').value.trim();if(!name){$('student').focus();return}student=name;$('studentLabel').textContent='Student: '+student;$('welcome').classList.add('hidden');$('test').classList.remove('hidden');render()});$('student').addEventListener('keydown',e=>{if(e.key==='Enter')$('start').click()});
-function render(){const q=QUESTIONS[idx];$('number').textContent='QUESTION '+(idx+1);$('progressLabel').textContent=`Question ${idx+1} of ${QUESTIONS.length}`;$('progress').style.width=((idx+1)/QUESTIONS.length*100)+'%';$('prompt').textContent=q.q;$('options').innerHTML='';q.o.forEach((o,i)=>{const lab=document.createElement('label');lab.className='opt';if(checked[idx]&&i===q.a)lab.classList.add('correct');if(checked[idx]&&answers[idx]===i&&i!==q.a)lab.classList.add('wrong');const radio=document.createElement('input');radio.type='radio';radio.name='answer';radio.value=i;radio.checked=answers[idx]===i;radio.disabled=checked[idx];radio.addEventListener('change',()=>{answers[idx]=i;checked[idx]=true;render()});const span=document.createElement('span');span.textContent=letters[i]+'. '+o;lab.append(radio,span);$('options').append(lab)});$('feedback').textContent='';$('feedback').className='feedback';if(checked[idx]){if(answers[idx]===q.a){$('feedback').textContent='✓ Correct answer! +1 mark';$('feedback').classList.add('good')}else{$('feedback').textContent='✗ Wrong answer. Correct: '+letters[q.a]+'. '+q.o[q.a];$('feedback').classList.add('bad')}}$('prev').disabled=idx===0;$('next').disabled=!checked[idx];$('next').textContent=idx===QUESTIONS.length-1?'View result →':'Next →'}
-$('prev').addEventListener('click',()=>{if(idx>0){idx--;render()}});$('next').addEventListener('click',()=>{if(!checked[idx])return;if(idx<QUESTIONS.length-1){idx++;render()}else showResult()});function showResult(){$('test').classList.add('hidden');$('result').classList.remove('hidden');const score=QUESTIONS.reduce((s,q,i)=>s+(answers[i]===q.a?1:0),0);$('resultTitle').textContent='Well done, '+student+'!';$('score').textContent=score+' / '+QUESTIONS.length;$('percentage').textContent=(score/QUESTIONS.length*100).toFixed(1)+'%';$('summary').textContent=(QUESTIONS.length-score)+' incorrect or unanswered · '+score+' correct';$('review').classList.add('hidden')}
-$('reviewBtn').addEventListener('click',()=>{const el=$('review');el.classList.toggle('hidden');el.innerHTML='';QUESTIONS.forEach((q,i)=>{const d=document.createElement('div');d.className='review';const h=document.createElement('strong');h.textContent=(i+1)+'. '+q.q;const p=document.createElement('p');p.textContent='Your answer: '+(answers[i]===null?'Not answered':letters[answers[i]]+'. '+q.o[answers[i]])+' | Correct: '+letters[q.a]+'. '+q.o[q.a];p.className=answers[i]===q.a?'good':'bad';d.append(h,p);el.append(d)})});$('restart').addEventListener('click',()=>{idx=0;answers=Array(QUESTIONS.length).fill(null);checked=Array(QUESTIONS.length).fill(false);$('result').classList.add('hidden');$('welcome').classList.remove('hidden');$('student').value='';$('review').innerHTML='';$('review').classList.add('hidden')});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Search Algorithms - MCQ Test</title>
+<style>
+  :root { color-scheme: light; --blue:#1d4ed8; --green:#15803d; --red:#b91c1c; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:Arial, sans-serif; background:#f3f6fb; color:#172033; }
+  .wrap { max-width:850px; margin:0 auto; padding:18px; }
+  .card { background:#fff; border-radius:16px; padding:22px; margin:16px 0; box-shadow:0 5px 22px #17203312; }
+  h1 { margin:0 0 8px; font-size:1.65rem; }
+  .muted { color:#5b6475; line-height:1.5; }
+  label { display:block; font-weight:700; margin:14px 0 6px; }
+  input[type=text] { width:100%; padding:12px; border:1px solid #cbd5e1; border-radius:9px; font-size:1rem; }
+  button { border:0; border-radius:10px; padding:12px 16px; background:var(--blue); color:white; font-weight:700; font-size:1rem; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .q { border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin:14px 0; }
+  .q h3 { margin:0 0 12px; font-size:1.05rem; line-height:1.45; }
+  .option { display:flex; align-items:flex-start; gap:10px; padding:11px; border:1px solid #dbe2ec; border-radius:9px; margin:8px 0; cursor:pointer; }
+  .option input { margin-top:3px; }
+  .option.correct { border-color:#16a34a; background:#dcfce7; color:#14532d; }
+  .option.wrong { border-color:#dc2626; background:#fee2e2; color:#7f1d1d; }
+  .feedback { min-height:20px; font-weight:700; margin-top:8px; }
+  .correct-text { color:var(--green); } .wrong-text { color:var(--red); }
+  .hidden { display:none; }
+  .result { border-left:5px solid var(--blue); background:#eff6ff; padding:16px; border-radius:10px; }
+  .score { font-size:1.4rem; font-weight:800; }
+  @media(max-width:520px) { .wrap{padding:10px} .card{padding:16px} h1{font-size:1.35rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="card" id="intro">
+    <h1>AI Search Algorithms — MCQ Test</h1>
+    <p class="muted">25 questions · 1 mark each · Select an answer to get instant feedback.</p>
+    <label for="studentName">Student Name</label>
+    <input id="studentName" type="text" autocomplete="name" placeholder="Enter your full name" required>
+    <label for="regNo">Register Number</label>
+    <input id="regNo" type="text" autocomplete="off" placeholder="Enter your register number" required>
+    <p class="muted">Please check your name and register number before starting.</p>
+    <button id="startBtn">Start Test</button>
+  </section>
+
+  <section class="card hidden" id="testSection">
+    <div id="studentInfo" class="muted"></div>
+    <h2>Answer all questions</h2>
+    <div id="questions"></div>
+    <button id="finishBtn">Finish Test & View Score</button>
+  </section>
+
+  <section class="card hidden" id="resultSection">
+    <h2>Test Result</h2>
+    <div id="result" class="result"></div>
+    <p class="muted">This static GitHub Pages version displays the result on this device. It does not send or securely store scores for the teacher.</p>
+    <button onclick="location.reload()">Take Test Again</button>
+  </section>
+</div>
+<script>
+const questions = [
+ {q:"In Breadth-First Search (BFS), nodes are expanded:",o:["In the order of highest cost","In depth-first manner","Level by level","Based on heuristics"],a:2},
+ {q:"Which data structure is used in BFS?",o:["Stack","Queue","Priority Queue","Tree"],a:1},
+ {q:"Depth-First Search (DFS) uses which data structure?",o:["Queue","Priority Queue","Stack","Linked List"],a:2},
+ {q:"Which of the following search algorithms is not complete in general?",o:["BFS","DFS","Uniform Cost Search","A* Search"],a:1},
+ {q:"In Uniform Cost Search (UCS), the node with:",o:["Minimum cost from the goal is expanded first","Maximum depth is expanded first","Least path cost from the root is expanded first","Random cost is expanded first"],a:2},
+ {q:"Which search algorithm guarantees the shortest path if the cost is non-negative?",o:["DFS","BFS","UCS","Both BFS and UCS"],a:3},
+ {q:"Bidirectional search works by:",o:["Searching from root to leaf","Searching from goal to start","Searching simultaneously from both start and goal","Searching randomly"],a:2},
+ {q:"What is a key limitation of DFS?",o:["High memory usage","No path returned","It may get stuck in an infinite loop","Cannot be used for graphs"],a:2},
+ {q:"Heuristic function h(n) is used to:",o:["Calculate exact cost","Estimate the cost from node n to goal","Choose random nodes","Measure node depth"],a:1},
+ {q:"Best-First Search selects the node with:",o:["The highest cost","The smallest heuristic value","The lowest depth","The largest heuristic value"],a:1},
+ {q:"What is the evaluation function used in A* Search?",o:["f(n) = h(n)","f(n) = g(n)","f(n) = g(n) + h(n)","f(n) = g(n) × h(n)"],a:2},
+ {q:"In A* Search, g(n) refers to:",o:["Estimated cost to goal","Actual cost from start to node n","Total number of steps","None of the above"],a:1},
+ {q:"A heuristic is admissible if:",o:["It never overestimates the true cost","It runs in O(1) time","It finds local minima","It chooses the longest path"],a:0},
+ {q:"Which algorithm is both complete and optimal with an admissible heuristic?",o:["Best-First Search","Depth-First Search","A* Search","Uniform Cost Search"],a:2},
+ {q:"If a heuristic function returns 0 for all nodes, A* Search becomes equivalent to:",o:["DFS","BFS","UCS","Bidirectional Search"],a:2},
+ {q:"Which algorithm uses the least memory space?",o:["A*","DFS","UCS","BFS"],a:1},
+ {q:"What is the time complexity of BFS in the worst case (b = branching factor, d = depth)?",o:["O(b + d)","O(b^d)","O(n)","O(d^b)"],a:1},
+ {q:"Greedy Best-First Search uses:",o:["g(n) only","h(n) only","g(n) + h(n)","f(n) only"],a:1},
+ {q:"Which algorithm is guaranteed to find the shortest path if all step costs are equal?",o:["DFS","BFS","A*","UCS"],a:1},
+ {q:"Which search may go into an infinite loop without proper checks?",o:["A*","DFS","UCS","BFS"],a:1},
+ {q:"A* consistent heuristic ensures:",o:["h(n) is zero","Non-decreasing f(n) values","Overestimation","Random results"],a:1},
+ {q:"Which algorithm uses only heuristics for node selection?",o:["UCS","Greedy Best-First Search","A*","BFS"],a:1},
+ {q:"Which search strategy uses a priority queue with path cost?",o:["DFS","UCS","BFS","Greedy"],a:1},
+ {q:"Which of the following is memory-efficient but not complete?",o:["BFS","UCS","DFS","A*"],a:2},
+ {q:"Which search algorithm explores the shallowest node first?",o:["DFS","BFS","UCS","A*"],a:1}
+];
+let answers = {};
+let started = false;
+const $ = id => document.getElementById(id);
+
+$("startBtn").addEventListener("click", () => {
+  const name = $("studentName").value.trim();
+  const reg = $("regNo").value.trim();
+  if (!name || !reg) { alert("Please enter both your name and register number."); return; }
+  started = true;
+  $("studentInfo").textContent = `Student: ${name} · Register Number: ${reg}`;
+  $("intro").classList.add("hidden");
+  $("testSection").classList.remove("hidden");
+  renderQuestions();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+function renderQuestions() {
+  $("questions").innerHTML = questions.map((item, i) => `
+    <article class="q" id="q${i}">
+      <h3>${i+1}. ${item.q}</h3>
+      ${item.o.map((opt,j)=>`
+        <label class="option" id="q${i}o${j}">
+          <input type="radio" name="q${i}" value="${j}" onchange="chooseAnswer(${i},${j})">
+          <span>${String.fromCharCode(65+j)}. ${opt}</span>
+        </label>`).join("")}
+      <div class="feedback" id="feedback${i}" aria-live="polite"></div>
+    </article>`).join("");
+}
+function chooseAnswer(i,j) {
+  if (answers[i] !== undefined) return;
+  answers[i] = j;
+  const correct = questions[i].a;
+  const options = questions[i].o;
+  for (let k=0;k<options.length;k++) {
+    const el = document.getElementById(`q${i}o${k}`);
+    const radio = el.querySelector("input");
+    radio.disabled = true;
+    if (k === correct) el.classList.add("correct");
+    if (k === j && j !== correct) el.classList.add("wrong");
+  }
+  const fb = $(`feedback${i}`);
+  if (j === correct) {
+    fb.textContent = "✓ Correct!";
+    fb.className = "feedback correct-text";
+  } else {
+    fb.textContent = `✗ Incorrect. Correct answer: ${String.fromCharCode(65+correct)}. ${options[correct]}`;
+    fb.className = "feedback wrong-text";
+  }
+}
+$("finishBtn").addEventListener("click", () => {
+  if (!started) return;
+  const unanswered = questions.length - Object.keys(answers).length;
+  if (unanswered > 0 && !confirm(`You have ${unanswered} unanswered question(s). Finish anyway?`)) return;
+  let score = 0;
+  questions.forEach((q,i) => { if (answers[i] === q.a) score++; });
+  const percent = Math.round(score / questions.length * 10000) / 100;
+  $("testSection").classList.add("hidden");
+  $("resultSection").classList.remove("hidden");
+  $("result").innerHTML = `
+    <p><strong>Student:</strong> ${escapeHtml($("studentName").value.trim())}</p>
+    <p><strong>Register Number:</strong> ${escapeHtml($("regNo").value.trim())}</p>
+    <p class="score">Score: ${score} / ${questions.length}</p>
+    <p><strong>Percentage:</strong> ${percent}%</p>`;
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+function escapeHtml(s) {
+ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+</script>
+</body>
+</html>
